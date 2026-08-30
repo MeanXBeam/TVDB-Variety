@@ -13,7 +13,7 @@
 #   (TVer-epXXXXXXXX)
 
 param(
-    [string]$Root = "A:\Media\Japanese Variety",
+    [string]$Root = "(insert your library folder path here)",
     [switch]$Apply,
     [switch]$IncludeMkv,
     [switch]$TestApi
@@ -22,10 +22,12 @@ param(
 $ErrorActionPreference = "Stop"
 
 # -----------------------------------------------------------------------------
-# API KEYS - supplied by the user
+# API KEYS - fill these in with your own before running.
+# TMDB: https://www.themoviedb.org/settings/api
+# TVDB: https://thetvdb.com/dashboard/account/apikey
 # -----------------------------------------------------------------------------
-$TmdbApiKey = "c9b475d747802a6ed2d9656244ad29c4"
-$TvdbApiKey = "3e04ce0a-4c27-4497-8354-12a678c823f7"
+$TmdbApiKey = "(insert api key here)"
+$TvdbApiKey = "(insert api key here)"
 
 # -----------------------------------------------------------------------------
 # Exact folder names from the user's actual library screenshot.
@@ -196,7 +198,7 @@ function Get-TmdbEpisodes([int]$TmdbId) {
         }
     }
 
-    return @($rows)
+    return $rows
 }
 
 function Get-TvdbToken {
